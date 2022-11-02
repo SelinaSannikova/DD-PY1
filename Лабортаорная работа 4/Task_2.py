@@ -19,7 +19,7 @@ print(get_count_char(main_str))  # В условии просят указать
 def percent(dict_v):
     count_ = sum(dict_v.values())
     for v in dict_v:
-        dict.v[v] = round(dict[v] * 100 / count_, 2)
+        dict_v[v] = round(dict_[v] * 100 / count_, 2)
     return dict_v
     
     
