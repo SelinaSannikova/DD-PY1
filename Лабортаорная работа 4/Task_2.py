@@ -1,9 +1,9 @@
 def get_count_char(str_):
     dict_ = {}
     str_ = str_.lower()
-    DEFAULT_COUNT = 0
+    default_count = 0
     for letter in str_:
-        dict_[letter] = dict_.get(letter, DEFAULT_COUNT) + 1
+        dict_[letter] = dict_.get(letter, default_count) + 1
 
     return dict_  # TODO посчитать количество каждой буквы в строке в аргументе str_
 
@@ -15,9 +15,12 @@ main_str = """
 """
 print(get_count_char(main_str))
 
+
 def percent(dict_v):
     count_ = sum(dict_v.values())
-    for v in dict_v.values():
-        v = round(v / count_ * 100, 2)
+    for v in dict_v:
+        dict.v[v] = round(dict[v] * 100 / count_, 2)
     return dict_v
-print(percent(dict_v))
+    
+    
+print(percent(get_count_char(main_str)))
