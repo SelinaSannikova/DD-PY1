@@ -1,11 +1,28 @@
 def get_count_char(str_):
     dict_ = {}
-    str_ = str_.lower()
     default_count = 0
-    for letter in str_:
-        dict_[letter] = dict_.get(letter, default_count) + 1
+    for letter in str_.lower():
+        if letter.isalpha():
+            if letter in dict_:
+                dict_[letter] += 1
+            else:
+                dict_[letter] = 1
+        else:
+            default_count += 1 * 100 / len(str_)
+    percent(dict_, str_, default_count)
+    return dict_
 
-    return dict_  # TODO посчитать количество каждой буквы в строке в аргументе str_
+
+def percent(dict_, str_, default_count):
+    dict_another = {}
+    procent = 0
+    for k, v in dict_.items():
+        func = v * 100 / len(str_)
+        dict_another[v] = func
+        procent += func
+        print(k, "-", round(func, 2), end='%  ')
+    all_ = procent + default_count
+    print("\n", int(all_), "%")
 
 
 main_str = """
@@ -13,14 +30,4 @@ main_str = """
     В качестве разделителя для встроенного метода split будет выбран символ пробела. На выходе мы получим список отдельных слов. 
     Далее нужно отсортировать слова в алфавитном порядке, а после сортировки склеить их с помощью метода строк join. Приступим!!!!
 """
-print(get_count_char(main_str))  # В условии просят указать количество символов, а не букв, done
-
-
-def percent(dict_v):
-    count_ = sum(dict_v.values())
-    for v in dict_v:
-        dict_v[v] = round(dict_v[v] * 100 / count_, 2)
-    return dict_v
-    
-    
-print(percent(get_count_char(main_str)))
+print("\n", get_count_char(main_str))
